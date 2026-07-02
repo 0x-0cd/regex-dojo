@@ -15,8 +15,7 @@ PROJECT_ROOT = Path(__file__).parent
 
 PHASES = {
     1: "practices.phase_01_basics",
-    # 后续阶段加在这里
-    # 2: "practices.phase_02_quantifiers",
+    2: "practices.phase_02_quantifiers",
     # 3: "practices.phase_03_groups",
     # 4: "practices.phase_04_lookaround",
     # 5: "practices.phase_05_re_api",
