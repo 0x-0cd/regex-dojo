@@ -10,10 +10,13 @@ from practices.helpers import test
 
 pattern = r""  # 换你的模式
 
-test(pattern, [
-    ("用例描述",  "测试字符串",   True),
-    ("用例描述",  "另一个串",     False),
-])
+test(
+    pattern,
+    [
+        ("用例描述", "测试字符串", True),
+        ("用例描述", "另一个串", False),
+    ],
+)
 
 # ── 也可以从文件运行 ─────────────────────────────────
 # python playground.py
