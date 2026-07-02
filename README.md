@@ -2,30 +2,35 @@
 
 > 系统学习 Python 正则表达式的练习道场。
 
+## 用法
+
+```bash
+# 跑所有阶段
+python run.py
+
+# 跑指定阶段
+python run.py 1
+python run.py 1 3       # 跑阶段 1 和 3
+```
+
+填好模式后直接验证，从根目录跑就行，不用折腾模块路径。
+
 ## 结构
 
 ```
 regex-dojo/
-├── practices/         ← 分阶段练习 + 参考答案
-│   ├── helpers.py     # 验证工具函数
-│   ├── phase-01-basics.py
-│   ├── phase-02-quantifiers.py
-│   ├── phase-03-groups.py
-│   ├── phase-04-lookaround.py
-│   ├── phase-05-re-api.py
-│   ├── phase-06-advanced.py
-│   └── phase-07-final-challenge.py
-├── playground.py      # 自由练习场
+├── run.py                     ← 入口：python run.py
+├── playground.py              ← 自由练习场
+├── practices/
+│   ├── __init__.py
+│   ├── helpers.py             # 验证工具
+│   ├── phase_01_basics.py     # 阶段 1：基础匹配
+│   ├── phase_02_quantifiers.py
+│   ├── ...
+│   └── phase_07_challenge.py
 ├── .gitignore
 └── README.md
 ```
-
-## 怎么用
-
-1. 每阶段先看 `/practices/` 下的挑战文件
-2. 在挑战文件里写你的 pattern
-3. 直接跑文件验证：`python practices/phase-01-basics.py`
-4. 想自由练习用 `playground.py`
 
 ## 阶段
 
