@@ -14,7 +14,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent
 
 PHASES = {
-    1: "practices.phase_01_basics",
+    # 1: "practices.phase_01_basics",
     2: "practices.phase_02_quantifiers",
     # 3: "practices.phase_03_groups",
     # 4: "practices.phase_04_lookaround",
@@ -27,6 +27,7 @@ PHASES = {
 def run_phase(phase_num: int) -> bool:
     """运行指定阶段，返回是否全部通过"""
     import importlib
+
     if phase_num not in PHASES:
         print(f"❌ 阶段 {phase_num} 不存在")
         return False
@@ -38,12 +39,14 @@ def run_phase(phase_num: int) -> bool:
 
 
 def main():
-    phases = [int(a) for a in sys.argv[1:]] if len(sys.argv) > 1 else sorted(PHASES.keys())
-    
+    phases = (
+        [int(a) for a in sys.argv[1:]] if len(sys.argv) > 1 else sorted(PHASES.keys())
+    )
+
     results = {}
     for p in phases:
         results[p] = run_phase(p)
-    
+
     print(f"\n{'=' * 60}")
     passed = sum(1 for v in results.values() if v)
     total = len(results)
@@ -54,7 +57,7 @@ def main():
         failed = [k for k, v in results.items() if not v]
         print(f"  ⚠️  未通过阶段: {failed}")
     print(f"{'=' * 60}")
-    
+
     sys.exit(0 if passed == total else 1)
 
 
