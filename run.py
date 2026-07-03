@@ -14,11 +14,11 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent
 
 PHASES = {
-    # 1: "practices.phase_01_basics",
+    1: "practices.phase_01_basics",
     2: "practices.phase_02_quantifiers",
-    # 3: "practices.phase_03_groups",
-    # 4: "practices.phase_04_lookaround",
-    # 5: "practices.phase_05_re_api",
+    3: "practices.phase_03_groups",
+    4: "practices.phase_04_lookaround",
+    5: "practices.phase_05_re_api",
     # 6: "practices.phase_06_advanced",
     # 7: "practices.phase_07_final_challenge",
 }
