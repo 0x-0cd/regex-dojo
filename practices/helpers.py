@@ -3,7 +3,7 @@
 import re
 
 
-def test(pattern, test_cases, flags=0, method="search"):
+def test(pattern, test_cases, flags=0, method="search", replacement="★"):
     """
     批量验证正则模式。
 
@@ -11,6 +11,7 @@ def test(pattern, test_cases, flags=0, method="search"):
         期望结果 = True（应匹配）/ False（不应匹配）
         或者传字符串列表表示 findall 的期望结果
         或者传替换后的字符串表示 sub 的期望结果
+    replacement: sub 模式下的替换字符串（默认 ★）
     """
     print(f"\n  /{pattern}/")
     all_ok = True
@@ -28,7 +29,7 @@ def test(pattern, test_cases, flags=0, method="search"):
             result = re.findall(pattern, string, flags)
             ok = result == expected
         elif method == "sub":
-            result = re.sub(pattern, "★", string, flags=flags)
+            result = re.sub(pattern, replacement, string, flags=flags)
             ok = result == expected
         else:
             raise ValueError(f"Unknown method: {method}")

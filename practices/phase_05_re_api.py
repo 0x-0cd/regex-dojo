@@ -112,7 +112,7 @@ def e3_challenge_1():
 
 def e3_challenge_2():
     """re.sub + 组引用：将 'First Last' 格式替换为 'Last, First'"""
-    pattern = r""  # 提示：(\w+) (\w+) → \2, \1
+    pattern = r"(\w+) (\w+)"  # 提示：(\w+) (\w+) → \2, \1
     return test(
         pattern,
         [
@@ -121,6 +121,7 @@ def e3_challenge_2():
             ("单名", "Madonna", "Madonna"),  # 无空格，不匹配，不替换
         ],
         method="sub",
+        replacement=r"\2, \1",
     )
 
 
@@ -221,12 +222,15 @@ ALL_CHALLENGES = [
 
 def run_all() -> bool:
     """运行阶段 5 所有挑战，返回是否全部通过"""
-    for fn in ALL_CHALLENGES:
-        fn()
+    results = [fn() for fn in ALL_CHALLENGES]
+    all_pass = all(results)
     print(f"\n{'=' * 50}")
-    print("🏁 阶段 5 全部完成！")
+    if all_pass:
+        print("🏁 阶段 5 全部通过！")
+    else:
+        print("⚠️  阶段 5 有未通过的题目")
     print(f"{'=' * 50}")
-    return True
+    return all_pass
 
 
 if __name__ == "__main__":

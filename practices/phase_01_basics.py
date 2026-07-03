@@ -193,12 +193,15 @@ ALL_CHALLENGES = [
 
 def run_all() -> bool:
     """运行阶段 1 所有挑战，返回是否全部通过"""
-    for fn in ALL_CHALLENGES:
-        fn()
+    results = [fn() for fn in ALL_CHALLENGES]
+    all_pass = all(results)
     print(f"\n{'=' * 50}")
-    print("🏁 阶段 1 全部完成！")
+    if all_pass:
+        print("🏁 阶段 1 全部通过！")
+    else:
+        print("⚠️  阶段 1 有未通过的题目")
     print(f"{'=' * 50}")
-    return True
+    return all_pass
 
 
 if __name__ == "__main__":
