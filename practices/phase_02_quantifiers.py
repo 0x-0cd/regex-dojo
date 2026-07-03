@@ -161,7 +161,7 @@ def b3_challenge_3():
     """多行模式 re.M：在一段多行文本中匹配以 'def ' 开头的行"""
     text = "class Foo:\n    def bar(self):\n    def baz(self):\nclass Qux:\n    pass"
     # 提示：需要 flags=re.MULTILINE
-    pattern = r"^def.*"  # ← 你的模式
+    pattern = r"^\s*def.*"  # ← 你的模式
     return test(
         pattern,
         [
