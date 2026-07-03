@@ -134,12 +134,13 @@ def c_mixed_1():
         "普通文本",
     ]
     text = "\n".join(lines)
-    pattern = r""  # 提示：捕获 # 的个数和后面的标题文本
+    pattern = r"^#{1,3}\s+.+$"  # 提示：捕获 # 的个数和后面的标题文本
     return test(
         pattern,
         [
             ("多行标题", text, True),
         ],
+        re.MULTILINE,
     )
 
 

@@ -46,13 +46,13 @@ def d1_challenge_2():
 
 def d2_challenge_1():
     """否定前瞻：匹配一个数字后面不跟着 '%' 的数字"""
-    pattern = r"\d+(?!%)"  # 提示：r"\d+(?!%)"
+    pattern = r"\d+(?![\d%])"  # 提示：r"\d+(?!%)"
     return test(
         pattern,
         [
             ("无百分号", "42", True),
             ("有百分号", "42%", False),  # 后面有 % 不匹配
-            ("混合", "50% off", True),  # 50 后面有 %，但 off 前面的 0 后面没有 %
+            ("混合", r"50% 0off", True),  # 50 后面有 %，但 off 前面的 0 后面没有 %
         ],
     )
 
@@ -106,7 +106,7 @@ def d3_challenge_2():
 
 def d4_challenge_1():
     """否定后顾：匹配前面没有 '-' 的数字"""
-    pattern = r"(?<!-)\d+"  # 提示：r"(?<!-)\d+"
+    pattern = r"(?<![\d-])\d+"  # 提示：r"(?<!-)\d+"
     return test(
         pattern,
         [
